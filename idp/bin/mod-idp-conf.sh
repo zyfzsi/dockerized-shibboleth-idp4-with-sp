@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Shibbolethの設定ファイル(attribute-resolverなど)を修正するためのパッチを適用する。
+# 应用补丁文件,用于修改 Shibboleth 配置文件（例如attribute-resolver）。
 cp /opt/shibboleth-idp/conf/attribute-resolver-ldap.xml /opt/shibboleth-idp/conf/attribute-resolver.xml && \
 
 cd /opt/shibboleth-idp

@@ -1,30 +1,30 @@
 FROM noriyukitakei/dockerized-shibboleth-idp4:latest
 
-# SSHログインのパスワードを定義する。
+# 定义ssh密码
 ENV SSH_PASSWD "root:Docker!"
 
 ADD shibboleth-idp/ /opt/shibboleth-idp/
 
 RUN apk --no-cache add patch
 
-# Shibbolethの設定ファイル(attribute-resolverなど)にパッチを当てるスクリプトをコンテナにコピーする。
+# 将修改Shibboleth 配置文件（例如attribute-resolver）的脚本复制到容器。
 COPY bin/mod-idp-conf.sh /usr/local/bin/
 
-# Shibbolethの設定ファイル(attribute-resolverなど)に当てるパッチをコンテナにコピーする。
+# 将 Shibboleth 配置文件（例如attribute-resolver）的补丁复制到容器中。
 RUN mkdir /tmp/patch
 COPY patch/* /tmp/patch/
 
-# Shibbolethの設定ファイル(attribute-resolverなど)にパッチを当てるスクリプトを実行する。
+# 运行修改 Shibboleth 配置文件的脚本（例如attribute-resolver）。
 RUN chmod 750 /usr/local/bin/mod-idp-conf.sh \
     && /usr/local/bin/mod-idp-conf.sh
 
-# OpenSSHをインストールする。
+# 安装 OpenSSH。
 RUN apk add openssh && \
     ssh-keygen -A && \
     sed -i -e 's/#Port 22/Port 2222/' /etc/ssh/sshd_config && \
     sed -i -e 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
-# 起動スクリプトをコンテナにコピーする。
+# 将启动脚本复制到容器中。
 COPY bin/init.sh /usr/local/bin/init.sh
 
 RUN chmod +x /usr/local/bin/init.sh

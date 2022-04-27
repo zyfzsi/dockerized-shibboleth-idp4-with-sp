@@ -1,2 +1,1 @@
-こちらはShibbolethをDocker環境で動かすためのDockerfileです。インストール方法、使い方などは以下のブログをご覧ください！！  
-https://tech-lab.sios.jp/archives/19270
+这是一个用于在 Docker 环境中运行 Shibboleth 的 Dockerfile。 安装方法和使用方法请看以下博客！ ！！

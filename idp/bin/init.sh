@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# OpenSSHを起動する。
+# 启动 OpenSSH。
 echo "$SSH_PASSWD" | chpasswd
 /usr/sbin/sshd &
 
-# Jettyを起動する。
+# 启动jetty。
 $JAVA_HOME/bin/java -jar $JETTY_HOME/start.jar $JETTY_JAVA_ARGS
 
