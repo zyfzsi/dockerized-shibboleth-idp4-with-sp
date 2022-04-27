@@ -26,3 +26,4 @@ services:
       context: sp
     ports:
       - 10443:10443
+
