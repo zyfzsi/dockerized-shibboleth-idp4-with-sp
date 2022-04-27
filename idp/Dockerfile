@@ -1,4 +1,4 @@
-FROM noriyukitakei/dockerized-shibboleth-idp4:latest
+FROM zyfzsi/dockerized-shibboleth-idp4:latest
 
 # 定义ssh密码
 ENV SSH_PASSWD "root:Docker!"
