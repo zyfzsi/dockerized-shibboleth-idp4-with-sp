@@ -71,13 +71,11 @@ $ docker run -it -v $(pwd):/ext-mount \
 
 转到 openldap 目录。data/init.ldif 这里以ldif格式写入要提交给OpenLDAP的初始数据。默认是生成以下条目：
 ■ BIND DN
- DN：cn = 管理员，dc = 示例，dc = org
- 密码：密码
+ DN：cn = admin，dc = example，dc = org
+ 密码：password
 ■ 测试用户
- DN：uid = test001，ou = 人，dc = 示例，dc = org
- 密码：密码
-
-
+ DN：uid = test001，ou = people，dc = example，dc = org
+ 密码：password
 
 ## 5.[根据需要]更改测试SP应用程序
 
